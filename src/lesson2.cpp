@@ -10,12 +10,31 @@ void logSDLError(std::ostream &os, const std::string &msg)
     os << msg << " error: " << SDL_GetError() << std::endl;
 }
 
+Uint32 get_pixel32(SDL_Surface *surface, int x, int y)
+{
+    //转换像素为32位
+    Uint32 *pixels = (Uint32 *)surface->pixels;
+
+    //获取请求的像素
+    return pixels[(y * surface->w) + x];
+}
+
+void put_pixel32(SDL_Surface *surface, int x, int y, Uint32 pixel)
+{
+    //转换像素为32位
+    Uint32 *pixels = (Uint32 *)surface->pixels;
+
+    //设置像素
+    pixels[(y * surface->w) + x] = pixel;
+}
+
 // Loads a BMP image into a texture on the rendering device
 SDL_Texture *loadTexture(const std::string &file, SDL_Renderer *ren)
 {
     SDL_Texture *texture = nullptr;
     //Load the image
     SDL_Surface *loadedImage = SDL_LoadBMP(file.c_str());
+
     //If the loading went ok, convert to texture and return the texture
     if (loadedImage != nullptr)
     {
