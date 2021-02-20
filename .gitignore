@@ -5,3 +5,7 @@
 *.jpg
 *.bmp
 *.tga
+include/SDL*
+lib/*
+*.dll
+._SDL
