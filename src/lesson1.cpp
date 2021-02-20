@@ -1,22 +1,3 @@
-大清早就来抄 tutorial (thanks to twinklebear's lessons)
-
-为了看起来舒服，我把大部分判断异常的代码都删掉了，无非就是检查一下指针是否为 Null，自己加上去就行
-
-## 配置
-
-配置阶段遇到问题
-
-`ld.exe: skipping incompatible lib/libSDLmain.a when searching for -lSDLmain`
-
-解决：务必下载支持 64bit 的版本
-
-我们这里用的是 SDL2，不能随便抄 SDL1 的代码，区别还是蛮大的
-
-## Lesson 1: Hello World
-
-显示一张图片（因为用的是 texture，图片会被自动拉伸）
-
-``` cpp
 #include <bits/stdc++.h>
 #include "SDL2/SDL.h"
 
@@ -26,7 +7,7 @@ int main(int argc, char *argv[])
 	SDL_Init(SDL_INIT_VIDEO);
 
 	//Now create a window with title "Hello World" at 100, 100 on the screen with w:640 h:480 and show it
-	SDL_Window *win = SDL_CreateWindow("Hello World!", 100, 100, 640, 480, SDL_WINDOW_SHOWN);
+	SDL_Window *win = SDL_CreateWindow("Hello World!", 100, 100, 800, 600, SDL_WINDOW_SHOWN);
 
 	//Create a renderer that will draw to the window, -1 specifies that we want to load whichever
 	//video driver supports the flags we're passing
@@ -67,5 +48,3 @@ int main(int argc, char *argv[])
 
 	return 0;
 }
-```
-
