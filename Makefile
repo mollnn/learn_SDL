@@ -27,7 +27,7 @@ INCLUDE	:= include
 LIB		:= lib
 
 ifeq ($(OS),Windows_NT)
-MAINNAME	:= drawpp
+MAINNAME	:= stdthread
 MAIN	:= $(MAINNAME).exe
 MAINOBJ	:= src/$(MAINNAME).o
 SOURCEDIRS	:= $(SRC)
